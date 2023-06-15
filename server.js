@@ -2,11 +2,10 @@ const express= require('express')
 const mongoose =require('mongoose')
 const ShortUrl=require('./models/shortUrl')
 const app =express()
-
-mongoose.connect('mongodb://127.0.0.1/urlShortener',{
+const dbUrl='mongodb+srv://mananmodi53:abcd1234@cluster0.fn0eskt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect(dbUrl,{
     useNewUrlParser:true,useUnifiedTopology:true
 })
-
 
 app.set('view engine','ejs')
 app.use(express.urlencoded({extended:false}))
