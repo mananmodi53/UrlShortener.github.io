@@ -1,16 +1,15 @@
 const express= require('express')
 const mongoose =require('mongoose')
-const ShortUrl=require('./models/shortUrl')
+const ShortUrl = require('./models/shortUrl')
 const app =express()
-const dbUrl='mongodb+srv://mananmodi53:abcd1234@cluster0.fn0eskt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(dbUrl,{
-    useNewUrlParser:true,useUnifiedTopology:true
-})
+
+mongoose.connect('mongodb+srv://admin:admin@cluster0.gg6ad.mongodb.net/test?retryWrites=true&w=majority')
 
 app.set('view engine','ejs')
 app.use(express.urlencoded({extended:false}))
+
 app.get('/', async (req,res) => {
-    const shortUrls=await ShortUrl.find() 
+    const shortUrls=await ShortUrl.find(); 
     res.render('index',{shortUrls:shortUrls}) 
 })
 app.post('/shortUrls',async (req,res)=>{
@@ -24,4 +23,5 @@ app.get('/:shortUrl',async (req,res)=> {
     shortUrl.save()
     res.redirect(shortUrl.full)
 })
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`backend listening on 5000`)
