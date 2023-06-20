@@ -1,3 +1,4 @@
+const { text } = require('express');
 const mongoose=require('mongoose')
 const shortId=require('shortid')
 const { Schema } = mongoose;
@@ -16,6 +17,10 @@ const shortUrlSchema = new Schema({
         type:Number,
         required:true,
         default:0
+    },
+    note:{
+        type:text,
+        required:true
     }
 })
 module.exports=mongoose.model('ShortUrl',shortUrlSchema)
