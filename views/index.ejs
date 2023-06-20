@@ -10,6 +10,7 @@
         }
         .hyu{
             text-align: center;
+            color:rebeccapurple;
         }
     </style>
     <title>Document</title>
@@ -37,7 +38,7 @@
     <form action="/search" method="get" class="my-4 form-inline row">
         <input required type="text" name="dsearch" id="dsearch" class="form-control col mr-2 me-3" placeholder="Search any url or note">
         <br>
-        <button class="btn btn-warning col-md-2" type="submit">Search</button>
+        <button class="btn btn-warning col-md-2 yhyh" type="submit">Search</button>
     </form>
 
     <br>
@@ -66,7 +67,7 @@
     </table>
 
     <%}else{%> 
-        <h3>No Search Data Found</h3>
+        <h3>No such Data Found</h3>
     <%}%> 
 
     <%if(data.length < 4){%> 
