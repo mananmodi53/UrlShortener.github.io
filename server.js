@@ -19,7 +19,7 @@ app.get('/', async (req,res) => {
 
 app.get('/search',async (req,res)=>{  
     try {  
-        const data = await ShortUrl.find({$or:[{full:{'$regex':req.query.dsearch}},{note:{'$regex':req.query.dsearch}}]})
+        const data = await ShortUrl.find({$or:[{full:{'$regex':req.query.dsearch}},{note:{'$regex':req.query.dsearch}},{short:{'$regex':req.query.dsearch}}]})
         res.render('index',{data:data});  
     }catch(error){  
         console.log(error);  
